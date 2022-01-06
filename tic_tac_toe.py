@@ -1,4 +1,7 @@
 import os;
+import keyboard;
+import pyautogui as pa;
+import random;
 def main():
     s=True
     counter_time = 0
@@ -15,6 +18,7 @@ def main():
     while counter_time < 10:
         position_picked_player1 = int(input("Player 1 Choice the position to draw your Simbol :"))
         print("Positions should be betwen 1 and 9")
+        os.system('crtl+ñ')
         #This function call to Player_one to pick position
         player_one(positions, position_picked_player1)
         player_two()
