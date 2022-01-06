@@ -25,7 +25,7 @@ def interface(position):
             print("\n - + - + -")
         elif i == 6:
             #next line down
-            print("\n")
+            print("\n- + - + -")
         elif i==9:
             #print next line down with that simbols
             print("\n - + - + -")
