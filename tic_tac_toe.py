@@ -26,10 +26,7 @@ def interface(position):
         elif i == 6:
             #next line down
             print("\n- + - + -")
-        elif i==9:
-            #print next line down with that simbols
-            #print("\n - + - + -")
-            pass
+        
 
 if __name__== "__main__":
     main()
