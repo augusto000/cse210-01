@@ -1,21 +1,25 @@
 import os;
 def main():
-    s=True
-    counter_time = 0
    
     os.system('cls')
       
-    
-       #interface() devuelve el tablero para empeza a jugar
+    #interface()draw The Board / devuelve el tablero para empeza a jugar
     interfa= interface()
-    #Luego de imprimir el tablero de juego, pido que ingrese la posicion
-    #a escribir el simbolo x
-    posicion_escogida_x = int(input("Jugador 1 Ingrese Posicion escogida "))
+    
+    #Player 1 for the choosen position 
+    posicion_escogida_x = int(input("Player 1 Input the choosen position :"))
+    
+    #call to spot the position choosen of Player 1
     inte = marco_x(interfa, posicion_escogida_x)    
-    posicion_escogida_o = int(input("Jugador 2 Ingrese Posicion escogida :"))
+    
+    #Player 2 input your choosen position
+    posicion_escogida_o = int(input("Player 2 Input the choosen position :"))
+    
+    #call to spot the position choosen of Player 2
     marco_o(inte, posicion_escogida_o)
     
 def marco_o(inte, posicion_escogida_o):
+    #this function draw the board with the o position choosen from Player 2
     for i in range(3):
         for j in range(3):
             if inte[i][j] == posicion_escogida_o:
@@ -27,7 +31,7 @@ def marco_o(inte, posicion_escogida_o):
     return inte    
                 
 def marco_x(interfa, posicion_escogida_x):
-    #inter is the positions picked at the interface
+    #this function draw the board with the x position choosen from Player 1
     for i in range(3):
         for j in range(3):
             if interfa[i][j] == posicion_escogida_x:
@@ -40,7 +44,7 @@ def marco_x(interfa, posicion_escogida_x):
     return interfa        
         
 def interface():
-     #matriz with nine elements/creo una matriz de nueve elementos
+     #Draw the matriz with nine elements/dibujo una matriz de nueve elementos
     positions = [
                 [1,2,3],
                 [4,5,6],
