@@ -8,7 +8,7 @@ def main():
     
     #Player 1 for the choosen position 
     posicion_escogida_x = int(input("Player 1 Input the choosen position :"))
-    
+    os.system('cls')
     #call to spot the position choosen of Player 1
     inte = marco_x(interfa, posicion_escogida_x)    
     
