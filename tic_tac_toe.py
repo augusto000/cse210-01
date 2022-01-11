@@ -20,28 +20,29 @@ def main():
             #marco_o updates the position choosen at the board
             inte_o = marco_o (inte_x, o) 
             print()
-             
+    #look for a winner    
+    winner_x(inte_x)
+    #winner_o(inte_o)         
     s = input("Do you play once again ? Y/N :") 
     if s.lower() =="y":
-        op=True
+        op = True
         print()
         main()
         
     else:
-        op=False
         print("Thank you!")         
             
 def callInput_Player2_o(zo):
     #callInput_Players_o ask for the Player2 option
-    o = int(input("Player 2 Input position to draw a 'O'  :"))
-    #o= random.randint(1, 9)
+    #o = int(input("Player 2 Input position to draw a 'O'  :"))
+    o= random.randint(1, 9)
     zo = zo + 1
     return o, zo    
 
 def callInput_Player1_x(zx):
     #Player 1 for the choosen position 
-    x = int(input("Player 1 Input position to draw a 'X' :"))
-    #x= random.randint(1, 9)
+    #x = int(input("Player 1 Input position to draw a 'X' :"))
+    x= random.randint(1, 9)
     zx = zx +1
     return x, zx
 
@@ -75,18 +76,40 @@ def marco_x(interf, posicion_escogida_x):
 
         
 def interface():
-     #Draw the matriz with nine elements/dibujo una matriz de nueve elementos
-    positions = [
-                [1,2,3],
-                [4,5,6],
-                [7,8,9]        
-                ]        
+    positions=[
+              [1,2,3],
+              [4,5,6],
+              [7,8,9]        
+    ]
+    
     for i in positions:
         for elemento in i:
             print(elemento, end=" ")
-        print(sep="\n") 
-    return positions       
+        print(sep="\n")
+        print("-+-+-") 
+    return positions  
 
+def winner_x(board_x):
+    print("winner x")
+    for i in range(3):
+        for j in range(3):
+            m=board_x[i][j]
+            if (i==0 and j==0 and m=="x") and (i==0 and j==1 and m=="x")\
+               and (i==0 and j==2 and m=="x"):
+                print(board_x[i][j], end=" ")
+                print("Ganó X Tic - Tac - Toe")
+            else:            
+                print(board_x[i][j], end=" ")
+                      
+        print(sep="\n")
+        print("-+-+-")     
+            
+    
+
+def winner_o(board_o):
+    print("winner_o")    
+         
+   
 
 if __name__== "__main__":
     main()
