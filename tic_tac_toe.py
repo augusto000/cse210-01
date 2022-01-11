@@ -9,7 +9,7 @@ def main():
     zx = 0
     zo = 0
     
-    #while loop checks tree times each one of the players
+    #while loop checks tree times gamming each one of the players
     while zo < 3:
         #ask for Input position Player 1
         x, zx = callInput_Player1_x(zx)
@@ -17,6 +17,7 @@ def main():
             #call to spot the position choosen of Player 1
             inte_x = marco_x(interfa, x)
             o, zo = callInput_Player2_o(zo)
+            #marco_o updates the position choosen at the board
             inte_o = marco_o (inte_x, o) 
             print()
              
@@ -34,19 +35,19 @@ def callInput_Player2_o(zo):
     #callInput_Players_o ask for the Player2 option
     o = int(input("Player 2 Input position to draw a 'O'  :"))
     #o= random.randint(1, 9)
-    zo =zo + 1
+    zo = zo + 1
     return o, zo    
 
 def callInput_Player1_x(zx):
     #Player 1 for the choosen position 
     x = int(input("Player 1 Input position to draw a 'X' :"))
     #x= random.randint(1, 9)
-    zx =zx+1
+    zx = zx +1
     return x, zx
 
 def marco_o(inte, posicion_escogida_o):
     print()
-    #this function draw the board with the o position choosen from Player 2
+    #marco_o updates the position 'o' choosen at the board
     for i in range(3):
         for j in range(3):
             if inte[i][j] == posicion_escogida_o:
@@ -58,6 +59,7 @@ def marco_o(inte, posicion_escogida_o):
     return inte    
 
 def marco_x(interf, posicion_escogida_x):
+    #marco_x updates the position 'x' choosen at the board
     print()
     #this function draw the board with the x position choosen from Player 1
     for i in range(3):
