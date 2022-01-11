@@ -1,32 +1,51 @@
-import os;
+import os, random;
 def main():
     os.system('cls')
-    s_x = True
-    s_o = True
-           
-    #os.system('cls')
+              
     #interface()draw The Board / devuelve el tablero para empeza a jugar  
-    interfa=interface()
+    interfa = interface()
     
-    x = callInput_Player1_x()
+    #Counters for each player's round 
+    zx = 0
+    zo = 0
     
-    if (x >= 1 and x <= 9): 
-        #call to spot the position choosen of Player 1
-        inte_x = marco_x(interfa, x)
-        o = callInput_Player2_o()
-        inte_o = marco_o (inte_x, o) 
+    #while loop checks tree times each one of the players
+    while zo < 3:
+        #ask for Input position Player 1
+        x, zx = callInput_Player1_x(zx)
+        if (x >= 1 and x <= 9): 
+            #call to spot the position choosen of Player 1
+            inte_x = marco_x(interfa, x)
+            o, zo = callInput_Player2_o(zo)
+            inte_o = marco_o (inte_x, o) 
+            print()
+             
+    s = input("Do you play once again ? Y/N :") 
+    if s.lower() =="y":
+        op=True
         print()
+        main()
+        
+    else:
+        op=False
+        print("Thank you!")         
             
-def callInput_Player2_o():
-    o = int(input("Player 2 Input the choosen position :"))
-    return o    
+def callInput_Player2_o(zo):
+    #callInput_Players_o ask for the Player2 option
+    o = int(input("Player 2 Input position to draw a 'O'  :"))
+    #o= random.randint(1, 9)
+    zo =zo + 1
+    return o, zo    
 
-def callInput_Player1_x():
+def callInput_Player1_x(zx):
     #Player 1 for the choosen position 
-    x = int(input("Player 1 Input the choosen position :"))
-    return x
+    x = int(input("Player 1 Input position to draw a 'X' :"))
+    #x= random.randint(1, 9)
+    zx =zx+1
+    return x, zx
 
 def marco_o(inte, posicion_escogida_o):
+    print()
     #this function draw the board with the o position choosen from Player 2
     for i in range(3):
         for j in range(3):
@@ -39,6 +58,7 @@ def marco_o(inte, posicion_escogida_o):
     return inte    
 
 def marco_x(interf, posicion_escogida_x):
+    print()
     #this function draw the board with the x position choosen from Player 1
     for i in range(3):
         for j in range(3):
