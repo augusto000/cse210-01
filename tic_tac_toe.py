@@ -95,21 +95,29 @@ def interface():
     return positions  
 
 def isWinner(board):
-    #Horizotal Winner
+    #looks for Horizotal Winner
     if board[0][0] == board[0][1] == board[0][2] \
        or board[1][0]== board[1][1] == board[1][2]\
        or board[2][0]== board[2][1]== board[2][2]:
            if board[0][0]=="x" or board[1][0]=="x" or board[2][0]=="x":
-               print("The Winner es X")
+               print("The Winner is X")
                return True
-    
            else:
-               print("The Winner es O")
+               print("The Winner is O")
                return True
-                   
-          
-    else:
-        pass
+               
+    #looks for a Vertical Winner
+    elif board[0][0]==board[1][0]==board[2][0]\
+        or board[0][1]==board[1][1]==board[2][1]\
+        or board[0][2]==board[1][2]==board[2][2]:
+        if board[0][0]=="x" or board[0][1]=="x"or board[0][2]=="x":
+            print("The Winner is X")
+            return True   
+        else:
+            print("The Winner is O")
+            return True       
+        
+                
     '''
     for i in range(3):
         for j in range(3):
