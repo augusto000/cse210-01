@@ -11,7 +11,7 @@ def main():
     winner = None
     
     #while loop checks tree times gamming each one of the players
-    while zo < 3 :
+    while zo <= 2 :
         #ask for Input position Player 1
         x, zx = callInput_Player1_x(zx)
         if (x >= 1 and x <= 9): 
@@ -100,23 +100,32 @@ def isWinner(board):
        or board[1][0]== board[1][1] == board[1][2]\
        or board[2][0]== board[2][1]== board[2][2]:
            if board[0][0]=="x" or board[1][0]=="x" or board[2][0]=="x":
-               print("The Winner is X")
+               winner = board[0][0]
+               print(f"The Winner is X {board[0][0]} Horizontal")
                return True
            else:
-               print("The Winner is O")
+               print(f"The Winner is {board[0][0]} Horizontal")
                return True
                
     #looks for a Vertical Winner
     elif board[0][0]==board[1][0]==board[2][0]\
         or board[0][1]==board[1][1]==board[2][1]\
-        or board[0][2]==board[1][2]==board[2][2]:
+        or board[0][2]==board[1][2]==board[2][2] :
         if board[0][0]=="x" or board[0][1]=="x"or board[0][2]=="x":
-            print("The Winner is X")
+            print(f"The Winner is X {board[0][2]}Vertical")
             return True   
         else:
-            print("The Winner is O")
+            print("The Winner is O Vertical")
             return True       
-        
+    #looks for Diagonal Winner
+    elif board[0][0]==board[1][1]==board[2][2]\
+        or board[0][2]==board[1][1]==board[2][0]:
+            if board[1][1]=="x":
+                print(f"The Winner is X {board[1][1]} Diagonal")
+                return True   
+            else:
+                print("The Winner is O Diagonal ")
+                return True          
                 
     '''
     for i in range(3):
