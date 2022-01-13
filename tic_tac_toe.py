@@ -11,8 +11,7 @@ def main():
     winner = None
     
     #while loop checks tree times gamming each one of the players
-    while zo <= 2 :
-           
+    while zo <= 2 :           
         #ask for Input position Player 1
         x, zx = callInput_Player1_x(zx)
         if (x >= 1 and x <= 9): 
@@ -41,14 +40,14 @@ def main():
             
 def callInput_Player2_o(zo):
     #callInput_Players_o ask for the Player2 option
-    o = int(input("Player 2 Input position to draw a 'O'  :"))
+    o = int(input("Player 2 Input position to start plaing a 'O'  :"))
     #o= random.randint(1, 9)
     zo = zo + 1
     return o, zo    
 
 def callInput_Player1_x(zx):
     #Player 1 for the choosen position 
-    x = int(input("Player 1 Input position to draw a 'X' :"))
+    x = int(input("Player 1 Input position to start playing a 'X' :"))
     #x= random.randint(1, 9)
     zx = zx +1
     return x, zx
@@ -83,6 +82,12 @@ def marco_x(interf, posicion_escogida_x):
 
         
 def interface():
+    print("----------------------------------------------------------------------------------------------------------")
+    tit="-----------------------------------------TIC - TAC - TOE ---------------------------------------------------"
+    print("----------------------------------------------------------------------------------------------------------")
+    print()
+    print(tit)
+    print()
     positions=[
               [1,2,3],
               [4,5,6],
@@ -104,10 +109,10 @@ def isWinner(board):
        or board[2][0]== board[2][1]== board[2][2]:
            if board[0][0]=="x" or board[1][0]=="x" or board[2][0]=="x":
                winner = board[0][0]
-               print(f"The Winner is X {board[0][0]} Horizontal")
+               print(f"The Winner is X {board[0][0]} row")
                return True
            else:
-               print(f"The Winner is {board[0][0]} Horizontal")
+               print(f"The Winner is o row")
                return True
                
     #looks for a Vertical Winner
@@ -115,7 +120,7 @@ def isWinner(board):
         or board[0][1]==board[1][1]==board[2][1]\
         or board[0][2]==board[1][2]==board[2][2] :
         if board[0][0]=="x" or board[0][1]=="x"or board[0][2]=="x":
-            print(f"The Winner is X {board[0][2]}Vertical")
+            print(f"The Winner is X Vertical")
             return True   
         else:
             print("The Winner is O Vertical")
@@ -124,7 +129,8 @@ def isWinner(board):
     #looks for Diagonal Winner
     elif board[0][0]==board[1][1]==board[2][2]\
        or board[0][2]==board[1][1]==board[2][0]:
-           if board[0][0]=="o" and board[1][1]=="o" and board[2][2]=="o":
+           if board[0][0]=="o" and board[1][1]=="o" and board[2][2]=="o"\
+               or board[0][2]=="o" and board[1][1]=="o" and board[2][0]=="o":
               print(f"The Winner is O Diagonal")
               return True   
            else:
