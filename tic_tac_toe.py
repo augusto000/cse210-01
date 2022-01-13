@@ -98,7 +98,7 @@ def interface():
 
 def isWinner(board):
     #looks for Horizotal Winner
-    '''
+    
     if board[0][0] == board[0][1] == board[0][2] \
        or board[1][0]== board[1][1] == board[1][2]\
        or board[2][0]== board[2][1]== board[2][2]:
@@ -120,9 +120,9 @@ def isWinner(board):
         else:
             print("The Winner is O Vertical")
             return True       
-    '''
+    
     #looks for Diagonal Winner
-    if board[0][0]==board[1][1]==board[2][2]\
+    elif board[0][0]==board[1][1]==board[2][2]\
        or board[0][2]==board[1][1]==board[2][0]:
            if board[0][0]=="x"  or board[2][0]=="x":
               print(f"The Winner is X Diagonal")
@@ -130,15 +130,6 @@ def isWinner(board):
            else:
                print("The Winner is O Diagonal ")
                return True          
-                
-    '''
-    for i in range(3):
-        for j in range(3):
-            print(board[i][j], end=" ")
-        print(sep="\n")
-        #print("- + - ")     
-    '''        
-    
 
 if __name__== "__main__":
     main()
