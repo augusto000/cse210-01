@@ -12,6 +12,7 @@ def main():
     
     #while loop checks tree times gamming each one of the players
     while zo <= 2 :
+           
         #ask for Input position Player 1
         x, zx = callInput_Player1_x(zx)
         if (x >= 1 and x <= 9): 
@@ -26,6 +27,7 @@ def main():
                 #marco_o updates the position choosen at the board
                 inte_o = marco_o (board, o) 
                 print()
+                w=isWinner(board)
     
     #winner_o(inte_o)         
     s = input("Do you play once again ? Y/N :") 
@@ -96,6 +98,7 @@ def interface():
 
 def isWinner(board):
     #looks for Horizotal Winner
+    '''
     if board[0][0] == board[0][1] == board[0][2] \
        or board[1][0]== board[1][1] == board[1][2]\
        or board[2][0]== board[2][1]== board[2][2]:
@@ -117,15 +120,16 @@ def isWinner(board):
         else:
             print("The Winner is O Vertical")
             return True       
+    '''
     #looks for Diagonal Winner
-    elif board[0][0]==board[1][1]==board[2][2]\
-        or board[0][2]==board[1][1]==board[2][0]:
-            if board[1][1]=="x":
-                print(f"The Winner is X {board[1][1]} Diagonal")
-                return True   
-            else:
-                print("The Winner is O Diagonal ")
-                return True          
+    if board[0][0]==board[1][1]==board[2][2]\
+       or board[0][2]==board[1][1]==board[2][0]:
+           if board[0][0]=="x"  or board[2][0]=="x":
+              print(f"The Winner is X Diagonal")
+              return True   
+           else:
+               print("The Winner is O Diagonal ")
+               return True          
                 
     '''
     for i in range(3):
@@ -135,11 +139,6 @@ def isWinner(board):
         #print("- + - ")     
     '''        
     
-
-def winner_o(board_o):
-    print("winner_o")    
-         
-   
 
 if __name__== "__main__":
     main()
