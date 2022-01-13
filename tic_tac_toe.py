@@ -124,12 +124,15 @@ def isWinner(board):
     #looks for Diagonal Winner
     elif board[0][0]==board[1][1]==board[2][2]\
        or board[0][2]==board[1][1]==board[2][0]:
-           if board[0][0]=="x"  or board[2][0]=="x":
-              print(f"The Winner is X Diagonal")
+           if board[0][0]=="o" and board[1][1]=="o" and board[2][2]=="o":
+              print(f"The Winner is O Diagonal")
               return True   
            else:
-               print("The Winner is O Diagonal ")
+               print("The Winner is X Diagonal ")
                return True          
+           
+           
+               
 
 if __name__== "__main__":
     main()
