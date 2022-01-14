@@ -1,4 +1,19 @@
+#***************************************************************
+#Assignament: Programming with Class
+#Autor: Augusto Achá
+#***************************************************************
+'''
+Requirements
+Your program must also meet the following requirements.
+
+The program must have a comment with assignment and author names. DONE
+The program must have at least one if/then block.DONE
+The program must have at least one while loop.DONE
+The program must have more than one function.DONE
+The program must have a function called main.DONE
+'''
 import os, random,time;
+
 def main():
     os.system('cls')
               
@@ -8,12 +23,15 @@ def main():
     #Counters for each player's round 
     zx = 0
     zo = 0
+    z=0
     winner = None
+    s=True
     
     #while loop checks tree times gamming each one of the players
-    while zo <= 2 :           
+    while s and z<=9:           
         #ask for Input position Player 1
-        x, zx = callInput_Player1_x(zx)
+        x, zx, z = callInput_Player1_x(zx, z)
+        
         if (x >= 1 and x <= 9): 
             #call to spot the position choosen of Player 1
             board = marco_x(interfa, x)
@@ -22,35 +40,46 @@ def main():
             if w==True:
                 break
             else:
-                o, zo = callInput_Player2_o(zo)
-                #marco_o updates the position choosen at the board
-                inte_o = marco_o (board, o) 
-                print()
-                w=isWinner(board)
-    
-    #winner_o(inte_o)         
+                if w ==None:
+                    o, zo, z = callInput_Player2_o(zo, z)#####
+                    #marco_o updates the position choosen at the board
+                    inte_o = marco_o (board, o) 
+                    print()
+                    w=isWinner(board)####### falta codificar
+                    if w==True:
+                        s=False
+                        break
+                    print()
+                    print()
+                else:
+                    o, zo, z = callInput_Player2_o(zo, z)
+                    #marco_o updates the position choosen at the board
+                    inte_o = marco_o (board, o) 
+                    print()
+                    w=isWinner(board)
+                    break
     s = input("Do you play once again ? Y/N :") 
     if s.lower() =="y":
-        op = True
-        print()
+        s = True
         main()
-        
     else:
         print("Thank you!")         
             
-def callInput_Player2_o(zo):
+def callInput_Player2_o(zo, z):
     #callInput_Players_o ask for the Player2 option
     o = int(input("Player 2 Input position to start plaing a 'O'  :"))
     #o= random.randint(1, 9)
     zo = zo + 1
-    return o, zo    
+    z = z + 1
+    return o, zo, z    
 
-def callInput_Player1_x(zx):
+def callInput_Player1_x(zx, z):
     #Player 1 for the choosen position 
     x = int(input("Player 1 Input position to start playing a 'X' :"))
     #x= random.randint(1, 9)
     zx = zx +1
-    return x, zx
+    z = z + 1#if z==9 se cumple en este paso los 9 intentos
+    return x, zx, z
 
 def marco_o(inte, posicion_escogida_o):
     print()
@@ -83,7 +112,7 @@ def marco_x(interf, posicion_escogida_x):
         
 def interface():
     print("----------------------------------------------------------------------------------------------------------")
-    tit="-----------------------------------------TIC - TAC - TOE ---------------------------------------------------"
+    tit="-----------------------------------------TIC - TAC - TOE ------------------------------------------"
     print("----------------------------------------------------------------------------------------------------------")
     print()
     print(tit)
@@ -116,7 +145,7 @@ def isWinner(board):
                return True
                
     #looks for a Vertical Winner
-    elif board[0][0]==board[1][0]==board[2][0]\
+    elif   board[0][0]==board[1][0]==board[2][0]\
         or board[0][1]==board[1][1]==board[2][1]\
         or board[0][2]==board[1][2]==board[2][2] :
         if board[0][0]=="x" or board[0][1]=="x"or board[0][2]=="x":
@@ -135,9 +164,14 @@ def isWinner(board):
               return True   
            else:
                print("The Winner is X Diagonal ")
-               return True          
-           
-           
+               return True 
+    #look if it is tie       
+    elif isinstance(board[0][0] and board[0][1] and board[0][2]\
+        and board[1][0] and board[1][1] and board[1][2]\
+        and board[2][0] and board[2][1] and board[2][2], str):
+                
+        return None                 
+  
                
 
 if __name__== "__main__":
