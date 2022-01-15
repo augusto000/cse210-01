@@ -29,7 +29,7 @@ def main():
     s=True
     
     #while loop checks tree times gamming each one of the players
-    while s and z<=9:           
+    while s and z<9:           
         #ask for Input position Player 1
         x, zx, z = callInput_Player1_x(zx, z)
         
@@ -37,35 +37,35 @@ def main():
             #call to spot the position choosen of Player 1
             board = marco_x(interfa, x)
             #look for a winner    
-            w=isWinner(board)
-            if w==True:
+            w = isWinner(board)
+            if w == True:
                 break
             else:
                 if w ==None:
-                    o, zo, z = callInput_Player2_o(zo, z)#####
-                    #marco_o updates the position choosen at the board
-                    inte_o = marco_o (board, o) 
-                    print()
-                    w=isWinner(board)
-                    if w==True:
-                        s=False
-                        break
-                    print()
+                    if z < 9:
+                        o, zo, z = callInput_Player2_o(zo, z)#####
+                        #marco_o updates the position choosen at the board
+                        inte_o = marco_o (board, o) 
+                        print()
+                        #w=isWinner(board)
+                    
                     print()
                 else:
-                    o, zo, z = callInput_Player2_o(zo, z)
-                    #marco_o updates the position choosen at the board
-                    inte_o = marco_o (board, o) 
-                    print()
-                    w=isWinner(board)
+                    if z <9:
+                        o, zo, z = callInput_Player2_o(zo, z)
+                        #marco_o updates the position choosen at the board
+                        inte_o = marco_o (board, o) 
+                        print()
+                        w=isWinner(board)
                     break
+        if z==9:
+            print("It is tie")        
     s = input("Do you play once again ? Y/N :") 
     if s.lower() =="y":
         s = True
         main()
     else:
-        print("**The game is over **")
-        
+        print("**The game is over **")        
             
 def callInput_Player2_o(zo, z):
     #callInput_Players_o ask for the Player2 option
@@ -110,7 +110,6 @@ def marco_x(interf, posicion_escogida_x):
                         
         print(sep = "\n")
     return interf        
-
         
 def interface():
     print()
@@ -170,10 +169,10 @@ def isWinner(board):
             if board[0][0]=="x" and board[1][0]=="x" and board[2][0]=="x"\
                 or board[0][1]=="x" and board[1][1]=="x" and board[2][1]=="x"\
                 or board[0][2]=="x" and board[1][2]=="x" and board[2][2]=="x" :
-                print(f"Congratulations X won !")
+                print(f"Congratulations Player X won !")
                 return True   
             else:
-                print("Congratulations O won !")
+                print("Congratulations Player O won !")
                 return True       
     
     #looks for Diagonal Winner
@@ -181,16 +180,16 @@ def isWinner(board):
        or board[0][2]==board[1][1]==board[2][0]:
            if board[0][0]=="o" and board[1][1]=="o" and board[2][2]=="o"\
                or board[0][2]=="o" and board[1][1]=="o" and board[2][0]=="o":
-              print(f"Congratulations O won !")
+              print(f"Congratulations Player O won !")
               return True   
            else:
-               print("Congratulations X won ! ")
+               print("Congratulations Player X won ! ")
                return True 
     #look if it is tie       
     elif isinstance(board[0][0] and board[0][1] and board[0][2]\
         and board[1][0] and board[1][1] and board[1][2]\
         and board[2][0] and board[2][1] and board[2][2], str):
-                
+              
         return None                 
 
 if __name__== "__main__":
