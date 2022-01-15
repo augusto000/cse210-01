@@ -68,7 +68,7 @@ def main():
             
 def callInput_Player2_o(zo, z):
     #callInput_Players_o ask for the Player2 option
-    o = int(input("Player 2 Input position to start plaing a 'O'  :"))
+    o = int(input("Player 2 Input position to start playing a 'O'  :"))
     #o= random.randint(1, 9)
     zo = zo + 1
     z = z + 1
@@ -137,24 +137,33 @@ def isWinner(board):
     if board[0][0] == board[0][1] == board[0][2] \
        or board[1][0]== board[1][1] == board[1][2]\
        or board[2][0]== board[2][1]== board[2][2]:
-           if board[0][0]=="x" or board[1][0]=="x" or board[2][0]=="x":
+           if board[0][0]=="x":
                winner = board[0][0]
-               print(f"Congratulations you won !")
+               print(f"Congratulations X won !")
                return True
            else:
-               print(f"Congratulations you won !")
+               print(f"Congratulations O won !")
                return True
                
     #looks for a Vertical Winner
     elif   board[0][0]==board[1][0]==board[2][0]\
         or board[0][1]==board[1][1]==board[2][1]\
         or board[0][2]==board[1][2]==board[2][2] :
-        if board[0][0]=="x" or board[0][1]=="x"or board[0][2]=="x":
-            print(f"Congratulations you won !")
-            return True   
-        else:
-            print("Congratulations you won !")
-            return True       
+            a=board[0][0]
+            b=board[1][0]
+            c=board[2][0]
+            print("---------")
+            print(a, b, c)
+            time.sleep(6)
+                    
+            if board[0][0]=="x" and board[1][0]=="x" and board[2][0]=="x"\
+                or board[0][1]=="x" and board[1][1]=="x" and board[2][1]=="x"\
+                or board[0][2]=="x" and board[1][2]=="x" and board[2][2]=="x" :
+                print(f"Congratulations X won !")
+                return True   
+            else:
+                print("Congratulations O won !")
+                return True       
     
     #looks for Diagonal Winner
     elif board[0][0]==board[1][1]==board[2][2]\
