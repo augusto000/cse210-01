@@ -45,7 +45,7 @@ def main():
                     #marco_o updates the position choosen at the board
                     inte_o = marco_o (board, o) 
                     print()
-                    w=isWinner(board)####### falta codificar
+                    w=isWinner(board)
                     if w==True:
                         s=False
                         break
@@ -79,7 +79,7 @@ def callInput_Player1_x(zx, z):
     x = int(input("Player 1 Input position to start playing a 'X' :"))
     #x= random.randint(1, 9)
     zx = zx +1
-    z = z + 1#if z==9 se cumple en este paso los 9 intentos
+    z = z + 1
     return x, zx, z
 
 def marco_o(inte, posicion_escogida_o):
@@ -134,11 +134,19 @@ def interface():
 def isWinner(board):
     #looks for Horizotal Winner
     
-    if board[0][0] == board[0][1] == board[0][2] \
-       or board[1][0]== board[1][1] == board[1][2]\
+    if board[0][0]==board[0][1]==board[0][2] \
+       or board[1][0]==board[1][1]==board[1][2]\
        or board[2][0]== board[2][1]== board[2][2]:
-           if board[0][0]=="x":
-               winner = board[0][0]
+           a=board[1][0]
+           b=board[1][1]
+           c=board[1][2]
+           print("---------")
+           print(a, b, c)
+           time.sleep(6)
+           
+           if board[0][0]=="x" and board[0][1]=="x" and board[0][2]=="x"\
+               or board[1][0]=="x" and board[1][1]=="x" and board[1][2]=="x"\
+               or board[2][0] =="x" and board[2][1]=="x" and board[2][2]=="x":
                print(f"Congratulations X won !")
                return True
            else:
@@ -149,12 +157,7 @@ def isWinner(board):
     elif   board[0][0]==board[1][0]==board[2][0]\
         or board[0][1]==board[1][1]==board[2][1]\
         or board[0][2]==board[1][2]==board[2][2] :
-            a=board[0][0]
-            b=board[1][0]
-            c=board[2][0]
-            print("---------")
-            print(a, b, c)
-            time.sleep(6)
+            
                     
             if board[0][0]=="x" and board[1][0]=="x" and board[2][0]=="x"\
                 or board[0][1]=="x" and board[1][1]=="x" and board[2][1]=="x"\
@@ -170,10 +173,10 @@ def isWinner(board):
        or board[0][2]==board[1][1]==board[2][0]:
            if board[0][0]=="o" and board[1][1]=="o" and board[2][2]=="o"\
                or board[0][2]=="o" and board[1][1]=="o" and board[2][0]=="o":
-              print(f"Congratulations you won !")
+              print(f"Congratulations O won !")
               return True   
            else:
-               print("Congratulations you won ! ")
+               print("Congratulations X won ! ")
                return True 
     #look if it is tie       
     elif isinstance(board[0][0] and board[0][1] and board[0][2]\
