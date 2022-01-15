@@ -1,6 +1,6 @@
 #***************************************************************
-#Assignament: Programming with Class
-#Autor: Augusto Achá
+#Assignament: Programming with Class -cse210-w02
+#Author: Augusto Achá
 #***************************************************************
 '''
 Requirements
@@ -63,7 +63,8 @@ def main():
         s = True
         main()
     else:
-        print("Thank you!")         
+        print("**The game is over **")
+        
             
 def callInput_Player2_o(zo, z):
     #callInput_Players_o ask for the Player2 option
@@ -138,10 +139,10 @@ def isWinner(board):
        or board[2][0]== board[2][1]== board[2][2]:
            if board[0][0]=="x" or board[1][0]=="x" or board[2][0]=="x":
                winner = board[0][0]
-               print(f"The Winner is X {board[0][0]} row")
+               print(f"Congratulations you won !")
                return True
            else:
-               print(f"The Winner is o row")
+               print(f"Congratulations you won !")
                return True
                
     #looks for a Vertical Winner
@@ -149,10 +150,10 @@ def isWinner(board):
         or board[0][1]==board[1][1]==board[2][1]\
         or board[0][2]==board[1][2]==board[2][2] :
         if board[0][0]=="x" or board[0][1]=="x"or board[0][2]=="x":
-            print(f"The Winner is X Vertical")
+            print(f"Congratulations you won !")
             return True   
         else:
-            print("The Winner is O Vertical")
+            print("Congratulations you won !")
             return True       
     
     #looks for Diagonal Winner
@@ -160,10 +161,10 @@ def isWinner(board):
        or board[0][2]==board[1][1]==board[2][0]:
            if board[0][0]=="o" and board[1][1]=="o" and board[2][2]=="o"\
                or board[0][2]=="o" and board[1][1]=="o" and board[2][0]=="o":
-              print(f"The Winner is O Diagonal")
+              print(f"Congratulations you won !")
               return True   
            else:
-               print("The Winner is X Diagonal ")
+               print("Congratulations you won ! ")
                return True 
     #look if it is tie       
     elif isinstance(board[0][0] and board[0][1] and board[0][2]\
@@ -171,8 +172,6 @@ def isWinner(board):
         and board[2][0] and board[2][1] and board[2][2], str):
                 
         return None                 
-  
-               
 
 if __name__== "__main__":
     main()
