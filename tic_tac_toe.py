@@ -1,6 +1,10 @@
 #***************************************************************
 #Assignament: Programming with Class -cse210-w02
+<<<<<<< HEAD
 #Author: Augusto 
+=======
+#Author: Augusto Agrego nombre Agrego nombre Agrego Nombre 3  veces 
+>>>>>>> RamaAugusto
 #***************************************************************
 
 '''
