@@ -1,6 +1,6 @@
 #***************************************************************
 #Assignament: Programming with Class -cse210-w02
-#Author: Augusto Acha Acha Acha
+#Author: Augusto Acha Acha Acha Ach{a}
 #***************************************************************
 
 '''
