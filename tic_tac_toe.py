@@ -1,6 +1,6 @@
 #***************************************************************
 #Assignament: Programming with Class -cse210-w02
-#Author: Augusto Achá
+#Author: Augusto Agrego nombre Agrego nombre Agrego Nombre 3  veces 
 #***************************************************************
 
 '''
